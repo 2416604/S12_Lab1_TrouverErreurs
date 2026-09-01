@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Mission.Models.Categorie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Upsert" class="btn btn-success">Create New</a>
+</p>
+<table class="table table-light table-bordered table-striped">
+    <thead class="table-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titre)
+            </td>
+            <td>
+                    <a class="btn btn-warning" asp-action="Upsert" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

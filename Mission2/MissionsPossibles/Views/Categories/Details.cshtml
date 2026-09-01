@@ -1,0 +1,27 @@
+﻿@model Mission.Models.Categorie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="DivBgForm col-sm-8">
+    <div>
+    <h4>Categorie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titre)
+        </dd>
+    </dl>
+</div>
+<div>
+    @{
+        <partial name="_EditButtons"  model="@Model.Id" />
+    }
+</div>
+</div>

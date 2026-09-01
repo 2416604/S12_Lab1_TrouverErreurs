@@ -1,0 +1,34 @@
+﻿@model Mission.Models.Categorie
+@{
+    var title = "Créer une catégorie";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form class="DivBgForm" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            @if (Model.Id != 0)
+            {
+                //edit
+                title = "Modifier une catégorie";
+            }
+
+            <h2>@title</h2>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Titre" class="control-label"></label>
+                <input asp-for="Titre" class="form-control" />
+                <span asp-validation-for="Titre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <partial name="_UpsertButtons" model="@Model.Id">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
